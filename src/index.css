@@ -1,0 +1,610 @@
+
+/* ===== VARIABLES GENERALES ===== */
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1d3049;
+  background: #ffffff;
+
+  --principal: #344861;
+  --principal-hover: #24374f;
+  --texto: #1d3049;
+  --secundario: #e8eef5;
+  --borde: #d4dce6;
+  --blanco: #ffffff;
+  --error: #c62828;
+  --exito: #15803d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+}
+
+p {
+  line-height: 1.6;
+}
+
+button, input, textarea {
+  font: inherit;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== HEADER ===== */
+
+header {
+  background: linear-gradient(120deg, #e7eef6, #ffffff);
+  border-bottom: 1px solid var(--borde);
+}
+
+.header-contenido {
+  max-width: 1150px;
+  min-height: 76px;
+  margin: auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.header-contenido h2 {
+  margin: 0;
+  font-size: 22px;
+  white-space: nowrap;
+}
+
+header nav ul {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+header nav a {
+  display: inline-block;
+  padding: 8px 0;
+  color: var(--texto);
+  font-size: 14px;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+header nav a:hover,
+header nav a.active {
+  color: var(--principal);
+  border-bottom-color: var(--principal);
+}
+
+/* ===== LAYOUT Y FOOTER ===== */
+
+main {
+  width: 92%;
+  max-width: 1100px;
+  margin: 40px auto;
+  flex: 1;
+}
+
+footer {
+  background: linear-gradient(120deg, #e7eef6, #f3f7fb);
+  border-top: 1px solid var(--borde);
+  padding: 22px;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  font-size: 13px;
+}
+
+/* ===== INICIO ===== */
+
+.inicio {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.presentacion {
+  background: linear-gradient(120deg, #e6eef7, #dce7f1);
+  border-radius: 6px;
+  padding: 55px 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 35px;
+}
+
+.presentacion-texto {
+  flex: 1;
+}
+
+.presentacion h1 {
+  font-size: clamp(26px, 3vw, 36px);
+  margin-bottom: 12px;
+}
+
+.presentacion h2 {
+  font-size: 19px;
+  font-weight: 400;
+}
+
+.presentacion p {
+  max-width: 450px;
+  font-size: 15px;
+  margin: 24px 0;
+}
+
+.presentacion a,
+.tarjeta-proyecto a {
+  display: inline-block;
+  background: var(--principal);
+  color: white;
+  border-radius: 4px;
+  padding: 11px 25px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.presentacion a:hover,
+.tarjeta-proyecto a:hover {
+  background: var(--principal-hover);
+}
+
+.imagen-inicio {
+  width: 230px;
+  height: 210px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  background: #c4d1df;
+  border-radius: 6px;
+}
+
+.imagen-inicio span {
+  font-size: 100px;
+  color: #8ca0b6;
+}
+
+/* Tarjetas del inicio */
+
+.caracteristicas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.caracteristicas article {
+  background: linear-gradient(#ffffff, #f1f5f9);
+  border: 1px solid var(--borde);
+  border-radius: 7px;
+  min-height: 165px;
+  padding: 25px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.caracteristica-icono {
+  font-size: 39px;
+  color: var(--principal);
+  margin-bottom: 16px;
+}
+
+.caracteristicas h3 {
+  font-size: 15px;
+  margin: 0;
+}
+
+/* ===== SOBRE MÍ ===== */
+
+.sobre-mi {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.perfil {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.perfil img {
+  width: 180px;
+  height: 180px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 6px;
+  background: var(--secundario);
+}
+
+.perfil h1 {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.perfil p {
+  max-width: 600px;
+}
+
+.estudios,
+.intereses {
+  padding: 5px 0;
+}
+
+.estudios h2,
+.intereses h2 {
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+
+.intereses ul {
+  padding-left: 25px;
+  line-height: 1.9;
+}
+
+/* ===== HABILIDADES ===== */
+
+.habilidades h1 {
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+.habilidades h2 {
+  font-size: 19px;
+  margin: 25px 0 20px;
+}
+
+.lista-habilidades {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+.tarjeta-habilidad {
+  background: white;
+  border: 1px solid var(--borde);
+  border-radius: 7px;
+  padding: 22px;
+  min-width: 0;
+  box-shadow: 0 2px 7px rgba(25, 45, 70, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarjeta-habilidad:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(25, 45, 70, 0.1);
+}
+
+.habilidad-icono {
+  display: block;
+  color: var(--principal);
+  font-size: 31px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.tarjeta-habilidad h3 {
+  font-size: 17px;
+  margin-bottom: 14px;
+}
+
+/* Barra de progreso */
+
+.barra-habilidad {
+  width: 100%;
+  height: 9px;
+  background: #e1e8f0;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.barra-progreso {
+  height: 100%;
+  background: var(--principal);
+  border-radius: 20px;
+  transition: width 0.4s ease;
+}
+
+.porcentaje {
+  text-align: right;
+  font-size: 12px;
+  margin: 7px 0 0;
+  color: #56677d;
+}
+
+/* Herramientas */
+
+.lista-herramientas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.lista-herramientas li {
+  background: var(--secundario);
+  padding: 9px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+}
+
+/* ===== PROYECTOS ===== */
+
+.proyectos h1 {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.lista-proyectos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tarjeta-proyecto {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: white;
+  border: 1px solid var(--borde);
+  border-radius: 7px;
+  padding: 20px;
+  transition: box-shadow 0.2s;
+}
+
+.tarjeta-proyecto:hover {
+  box-shadow: 0 5px 15px rgba(25, 45, 70, 0.1);
+}
+
+.proyecto-imagen {
+  width: 175px;
+  height: 145px;
+  flex-shrink: 0;
+  background: #d8e2ec;
+  border-radius: 5px;
+  display: grid;
+  place-items: center;
+}
+
+.proyecto-imagen span {
+  font-size: 65px;
+  color: #8ca0b6;
+}
+
+.proyecto-contenido {
+  flex: 1;
+  min-width: 0;
+}
+
+.proyecto-contenido h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.proyecto-contenido p {
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.proyecto-contenido .sin-enlace {
+  color: #64748b;
+  font-size: 13px;
+}
+
+/* ===== CONTACTO ===== */
+
+.contacto {
+  max-width: 750px;
+  margin: auto;
+}
+
+.contacto h1 {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.contacto > p {
+  margin-bottom: 25px;
+}
+
+.formulario-contacto {
+  background: linear-gradient(130deg, #e7eef6, #f1f5fa);
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formulario-contacto > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formulario-contacto label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid var(--borde);
+  border-radius: 5px;
+  background: white;
+}
+
+.formulario-contacto textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.formulario-contacto input:focus,
+.formulario-contacto textarea:focus {
+  outline: 2px solid var(--principal);
+  outline-offset: 1px;
+}
+
+.formulario-contacto button {
+  padding: 14px;
+  background: var(--principal);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.formulario-contacto button:hover {
+  background: var(--principal-hover);
+}
+
+.formulario-contacto div p {
+  color: var(--error);
+  font-size: 13px;
+  margin: 0;
+}
+
+.formulario-contacto > p {
+  color: var(--exito);
+  text-align: center;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Punto de quiebre 1 */
+
+@media (max-width: 1000px) {
+  .caracteristicas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .imagen-inicio {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+/* Punto de quiebre 2 */
+
+@media (max-width: 800px) {
+  .header-contenido {
+    flex-direction: column;
+  }
+
+  header nav ul {
+    justify-content: center;
+  }
+
+  .lista-habilidades {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .presentacion {
+    padding: 35px;
+  }
+}
+
+/* Punto de quiebre 3 */
+
+@media (max-width: 650px) {
+  .presentacion {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .imagen-inicio {
+    width: 100%;
+    height: 180px;
+  }
+
+  .perfil {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .tarjeta-proyecto {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .proyecto-imagen {
+    width: 100%;
+    height: 180px;
+  }
+
+  main {
+    margin: 25px auto;
+  }
+}
+
+/* Punto de quiebre 4 */
+
+@media (max-width: 480px) {
+  .caracteristicas,
+  .lista-habilidades {
+    grid-template-columns: 1fr;
+  }
+
+  .presentacion {
+    padding: 24px;
+  }
+
+  .presentacion h1 {
+    font-size: 27px;
+  }
+
+  .formulario-contacto {
+    padding: 20px;
+  }
+
+  header nav ul {
+    gap: 12px;
+  }
+}
+
+/* Punto de quiebre 5 */
+
+@media (max-width: 360px) {
+  .header-contenido {
+    padding: 12px;
+  }
+
+  header nav a {
+    font-size: 12px;
+  }
+
+  .presentacion {
+    padding: 18px;
+  }
+
+  .tarjeta-habilidad {
+    padding: 16px;
+  }
+}
